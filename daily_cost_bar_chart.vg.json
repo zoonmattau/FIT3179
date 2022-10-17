@@ -1,13 +1,31 @@
 {
 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-"title": { "text": "Richest Industries in the World" },
+"description": "Richest Industries in the World",
+"width": 600,
+"height": 400,
 "data": {
 "url": "https://raw.githubusercontent.com/zoonmattau/FIT3179/main/2022_forbes_billionaires.csv"
 },
-"height": {"step": 17},
-"mark": "bar",
-"encoding": {
-"x": { "aggregate": "sum", "field": "networth", "title": "$ in Billions" },
-"y": { "field": "industry", "type": "nominal" , "sort": "-x", "title": "Industry"}
+"transform": [
+    {"calculate": "datum.gender == 'female' ? 'Female' : 'Male'", "as": "gender"}
+  ],
+    "height": {"step": 17},
+    "mark": "bar",
+    "encoding": {
+        "x": { 
+            "aggregate": "sum", 
+            "field": "networth", 
+            "title": "$ in Billions"
+        },
+        "y": { "field": "industry", 
+            "type": "nominal" , 
+            "sort": "-x",
+            "title": "Industry"
+        },
+        "tooltip": [
+            {"field": "industry", "type": "nominal", "title": "Industry"},
+            {"field": "networth", "aggregate": "sum", "title": "Total Billions"}
+        ],
+        "color": {"value": "#85bb65"}
  }
 } 

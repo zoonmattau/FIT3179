@@ -1,0 +1,26 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Scatterplot for 50 richest people plotting networth v age.",
+    "data": {"url": "https://raw.githubusercontent.com/zoonmattau/FIT3179/main/2022_forbes_billionaires.csv"},
+    "width": 600,
+    "height": 200,
+    "transform": [{"window": [{"op": "count", "as": "count"}]},
+      {"filter": "datum.count <= 50"}
+      ],
+    "mark": {"type": "circle"}, 
+    "encoding": {
+      "x": {"field": "age", "type": "quantitative", "title": "Age"},
+      "y": {"field": "networth", "type": "quantitative", "title": "Networth in Billions"},
+      "tooltip": [
+        {"field": "name", "type": "nominal"},
+        {"field": "rank", "type": "nominal"},
+        {"field": "networth", "type": "nominal"},
+        {"field": "age", "type": "nominal"},
+        {"field": "source", "type": "nominal"}
+      ],
+      "color": {
+        "field": "gender",
+        "scale": {"range": ["#26472e", "#85bb65"]}
+      }
+      }
+    }

@@ -11,23 +11,113 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
     <script src="vega_lite_vis.js"></script>
-
     <title>Billionaires: Who are they and how did they get their wealth? </title>
+    <style>
+        /* Set additional styling options for the columns*/
+        .column {
+        float: left;
+        width: 50%;
+        }
+
+        .container {
+        position: relative;
+        text-align: center;
+        color: black
+        }
+    
+        .row:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+
+        .center {
+        text-align:center;
+        display:block;
+        }
+
+        .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+        </style>
 
 </head>
-<body>
-    <h1>Where has the most wealth been made?</h1>
-    <div id="cholopleth_map"></div>
-    <h4>Clearly USA leads the way with nearly 1,000 billionaires.
-    <p> China is close behind with 515 but then it drops off to 161 in India.</p>
-    </h4>
 
-    <h1>Which industry has made people the most money?</h1>
-    <div id="bar_chart"></div>
-    <h4>The richest industries are technology with over 2 trillion made
-        <p>then finance and investments and then a surprising fashion and retail</p>
-    </h4>
+<body style= "color:black;background-color:grey;font-family: verdana">
+<div class="container">
+    <img src="money.jpg", style="width:100%", >
+    <div class=centered><b><h1>Billionaires: Who are they and how did they get their wealth?</h1></b></div>
+</div>
+<div> 
+    <div class=center><h3>Everyone dreams of one day having money but who are the people alive today who currently
+        have the most wealth, how did they get it and 
+        where do they come from? Can we learn anything about how someone like you or me should go about accumulating wealth or is it all a forgone conclusion?</h3>
+        <p><h5>(All figures are in USD)</h5></p>
+        <p><h2><b>OVERVIEW</b></h2></p>
+    </div>
+    <div class = "row">
+        <div class="column">
+            <h2 class = "center">Which Countries Have the Most Billionaires? </h2>
+                <div id="cholopleth_map"></div>
+                <h4>Clearly USA leads the way with over 700 billionaires and wealth seems to be concentrated around the USA, China, India and Germany.
+                    Interestingly, Africa has only 6 billionaires while Asia has over 1,000.
+                </h4>
+            </div>
+        
 
+        <div class="column">
+            <h2 class = "center">Which Industry has Made People the Most Money?</h2>
+                <div id="bar_chart"></div>
+                <h4>When looking at industries we can see technology has made over 2 trillion USD and leads the way comfortably.
+                    Finance and investments is a close second but the biggest surprise of all is fashion and retain; a whopping 1.6 trillion USD made.
+                </p>
+     </h4>
+    </div>
+
+    <div><p><h2 class = "center"><b>DEMOGRAPHICS</b></h2></p></div>
+
+    <div class = "row">
+        <div class = "column">
+            <h2 class = "center">Is there any Correlation Between Age and Wealth?</h2>
+            <div id = "scatterplot"></div>
+            <h4>There does not seem to be any relation as we can see the top 50 most wealthy people are all grouped
+                by wealth with their ages varying from the 30s to the late 90s. We can see from this however that you have no chance of accumulating 
+                wealth until you are at least 35 and it only seems to be more likely from there.
+            </h4>
+        </div>
+
+        <div class = "column">
+            <h2 class = "center">How Old are Billionaires?</h2>
+            <div id = "age_hist"></div>
+            <h4>Similarly to the scatterplot, the wealth is concentrated around the 50s to 70s with the largest proportion of billionaires coming in their 60s.
+                This is what we would expect from a discipline that can only come from accumulating over long periods of time and when looking at who has inherited
+                their money, it takes a long time to start from relative nothing and generate mass wealth.
+            </h4>
+        </div>
+    </div>
+
+    <div><p><h2 class = "center"><b>BREAKDOWN</b></h2></p></div>
+
+    <div class = "row">
+        <div class = "column">
+            <h2 class = "center">Are there Female Billionaires?</h2>
+            <div id = "gender_bar"></div>
+            <h4>The current figures see only 97 females compared to 2,503 male billionaires. This is just 3.7%! However this is is also the highest number of female billionaires of all time.
+            </h4>
+        </div>
+
+    <div class = "row">
+        <div class = "column">
+            <h2 class = "center">Who has Daddy's Money?</h2>
+            <div id = "inherited_bar"></div>
+            <h4>Only a surprising 20% of billionaires have recieved their weatlh from their family with the majority coming from their own businesses and toil.
+                Interestingly, the female make up is only 15% of those whom have inherited their wealth.
+            </h4>
+        </div>
+    </div>
 
 </body>
 

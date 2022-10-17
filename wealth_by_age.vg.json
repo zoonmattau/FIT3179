@@ -1,0 +1,28 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Histogram of the age of billionaires, grouped in 10s.",
+    "width": 600,
+    "height": 400,
+    "data": {
+    "url": "https://raw.githubusercontent.com/zoonmattau/FIT3179/main/2022_forbes_billionaires.csv"
+    },
+    "transform": [
+        {"calculate": "datum.gender == 'female' ? 'Female' : 'Male'", "as": "gender"}
+      ],
+        "height": {"step": 17},
+        "mark": "bar",
+        "encoding": {
+            "x": { 
+                "bin": true, 
+                "field": "age", 
+                "title": "Age"
+            },
+            "y": { "aggregate": "count",
+                "title": "Number of Billionaires"
+            },
+            "color": {
+                "field": "gender",
+                "scale": {"range": ["#26472e", "#85bb65"]}
+              }
+     }
+    } 

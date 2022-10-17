@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Total Bilionaires by Country",
-    "width": 800,
-    "height": 400,
+    "description": "Total Bilionaires by Country",
+    "width": 600,
+    "height": 325,
     "projection": {"type": "equalEarth"},
     "data": {
         "url": "ne_110m.json",
@@ -19,18 +19,18 @@
                 "fields": ["count"]
             }
         },
-        {"calculate": "datum.count + 0.1", "as": "Total Billionaires"}
+        {"calculate": "datum.count", "as": "Total Billionaires"}
     ],
     "mark": {"type": "geoshape"},
     "encoding": {
         "color": {
             "field": "Total Billionaires",
             "type": "quantitative",
-            "scale": {"type": "log"}
+            "scale": {"type": "linear"}      
         },
         "tooltip": [
-            {"field": "properties.NAME", "type": "nominal", "title":" country"},
-            {"field": "count", "type": "quantitative"}
+            {"field": "properties.NAME", "type": "nominal", "title":"Country"},
+            {"field": "count", "type": "quantitative", "title": "Billionaires"}
             ]
         }
     }
